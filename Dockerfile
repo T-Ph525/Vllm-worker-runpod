@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir huggingface_hub
 # Set default env vars (can be overridden at runtime)
 ENV HF_HOME=/app/tmp/hf_cache
 # Run script using user-provided env vars
-CMD ["python", "download_model.py"]
+RUN python3 download_model.py
