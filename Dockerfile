@@ -1,5 +1,5 @@
 FROM runpod/worker-v1-vllm:v2.5.0stable-cuda12.1.0
-
+ENV MODEL_NAME"NeverSleep/Lumimaid-v0.2-12B"
 # Set working directory
 WORKDIR /app
 
@@ -12,6 +12,5 @@ RUN pip install --no-cache-dir huggingface_hub
 # Set default env vars (can be overridden at runtime)
 ENV HF_HOME=/app/tmp/hf_cache
 
-
 # Run script using user-provided env vars
-RUN python3 download_model.py $MODEL_NAME
+RUN python3 download_model.py
