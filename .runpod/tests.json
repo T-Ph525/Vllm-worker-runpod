@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Basic Handler Test",
+    "input": {
+      "input": {
+        "message": "Hello world"
+      }
+    },
+    "expected_output": "Your job results"
+  },
+  {
+    "name": "Concurrency Handler Test",
+    "env": {
+      "HANDLER_TYPE": "CONCURRENCY"
+    },
+    "input": {
+      "input": {
+        "message": "Test concurrency"
+      },
+      "delay": 1
+    },
+    "expected_contains": "Processed"
+  },
+  {
+    "name": "Generator Handler Test",
+    "env": {
+      "HANDLER_TYPE": "GENERATOR"
+    },
+    "input": {
+      "input": {}
+    },
+    "expected_contains": "This is the"
+  },
+  {
+    "name": "Async Handler Test",
+    "env": {
+      "HANDLER_TYPE": "ASYNC"
+    },
+    "input": {
+      "input": {}
+    },
+    "expected_contains": "Generated async token output"
+  }
+]

@@ -1,35 +1,31 @@
 {
-  "name": "Fast vLLM Worker (Pre-Downloaded Models)",
-  "description": "A vLLM worker that downloads Hugging Face models during build to eliminate cold-start delays. Based on RunPod's official image with faster startup.",
-  "url": "https://github.com/T-Ph525/Vllm-worker-runpod",
-  "type": "worker",
-  "tags": ["vllm", "fast", "llm", "inference", "huggingface"],
+  "name": "multi-handler-serverless-worker",
+  "version": "1.0.0",
+  "description": "RunPod Serverless Worker with multiple handler types selectable via HANDLER_TYPE env variable.",
+  "author": "Your Name",
+  "license": "MIT",
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "input": {
+        "type": "object",
+        "description": "Input payload for the job",
+        "default": {}
+      },
+      "delay": {
+        "type": "integer",
+        "description": "Optional delay in seconds (used in concurrency handler)",
+        "default": 1
+      }
+    },
+    "required": ["input"]
+  },
   "env": [
     {
-      "name": "MODEL_NAME",
-      "description": "Hugging Face model ID (e.g., NeverSleep/Lumimaid-v0.2-12B)",
-      "default": "NeverSleep/Lumimaid-v0.2-12B",
-      "required": true
-    },
-    {
-      "name": "MODEL_REVISION",
-      "description": "Optional: model version/commit hash/tag",
-      "required": false
-    },
-    {
-      "name": "TOKENIZER_NAME",
-      "description": "Optional: separate tokenizer path (defaults to MODEL_NAME)",
-      "required": false
-    },
-    {
-      "name": "TOKENIZER_REVISION",
-      "description": "Optional: tokenizer version/tag",
-      "required": false
+      "name": "HANDLER_TYPE",
+      "description": "Selects which handler to run. Options: 'GENERATOR', 'CONCURRENCY', 'ASYNC'. Defaults to BASIC if unset.",
+      "required": false,
+      "default": "BASIC"
     }
-  ],
-  "repository": "https://github.com/T-Ph525/Vllm-worker-runpod",
-  "dockerfilePath": "Dockerfile",
-  "startCommand": "python3 -m vllm.entrypoints.openai.api_server --model /",
-  "gpuType": "A100",
-  "containerDiskInGb": 30
-}
+  ]
+  }
