@@ -15,7 +15,6 @@ def setup_env():
         BASE_DIR = "tmp"
         os.makedirs(BASE_DIR, exist_ok=True)
         os.environ.update({
-            "HF_HOME": f"{BASE_DIR}/hf_cache",
             "HF_HUB_ENABLE_HF_TRANSFER": "1",
             "TENSORIZE": "1",
             "TENSORIZER_NUM_GPUS": "1",
