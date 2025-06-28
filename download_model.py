@@ -16,7 +16,6 @@ def setup_env():
         os.makedirs(BASE_DIR, exist_ok=True)
         os.environ.update({
             "HF_HOME": f"{BASE_DIR}/hf_cache",
-            "MODEL_NAME": "openchat/openchat-3.5-0106",
             "HF_HUB_ENABLE_HF_TRANSFER": "1",
             "TENSORIZE": "1",
             "TENSORIZER_NUM_GPUS": "1",
