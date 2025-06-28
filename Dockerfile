@@ -1,6 +1,6 @@
 FROM runpod/worker-v1-vllm:v2.5.0stable-cuda12.1.0
 
-ENV MODEL_NAME="NeverSleep/Lumimaid-v0.2-12B"
+ENV MODEL_NAME=""
 ENV HF_HOME="/app/tmp/hf_cache"
 
 WORKDIR /
